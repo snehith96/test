@@ -1,0 +1,120 @@
+Here’s a detailed user flow for your MVP with the specified features:
+
+1. User Login/Sign-Up Flow
+	1	Landing Page:
+	◦	CTA: “Sign Up” and “Log In”.
+	◦	For new users, clicking Sign Up takes them to a registration page.
+	◦	For returning users, clicking Log In prompts a login form.
+	2	Sign-Up Flow:
+	◦	Enter email/phone number and password or sign up with Google/Apple.
+	◦	OTP verification for email/phone-based registration.
+	◦	Onboarding questions:
+	▪	Username
+	▪	Bio (optional)
+	▪	Interests (e.g., stocks, crypto, ETFs)
+	▪	Profile picture upload.
+	◦	Redirect to the personal feed page after successful setup.
+	3	Log-In Flow:
+	◦	Enter credentials.
+	◦	Optional 2FA for security.
+	◦	Redirect to the user’s personal feed.
+
+2. Profile Setup and Navigation
+	1	Edit Profile:
+	◦	Access from profile icon in the top-right corner.
+	◦	Options:
+	▪	Edit username and bio.
+	▪	Upload/update portfolio (manually add stocks or sync with a broker API).
+	▪	Update personal preferences for notifications and privacy.
+	2	View Profile:
+	◦	Publicly visible information:
+	▪	Username and bio.
+	▪	Portfolio summary (top holdings or sectors).
+	▪	Recent posts.
+	▪	Followers/following count.
+	◦	Private information (only for user):
+	▪	Detailed portfolio breakdown.
+	▪	Settings for account management.
+
+3. Personal Feed
+	1	Feed Composition:
+	◦	Aggregate posts from users the individual follows.
+	◦	Display posts in reverse chronological order.
+	◦	Include reactions (like, comment, share).
+	◦	Show trending posts in a sidebar.
+	2	Post Interaction:
+	◦	Like: Increment a counter and display the user’s name in the likes section.
+	◦	Comment: Display a modal or inline text box to write and view comments.
+	◦	Share: Copy link to post or repost within the platform.
+	3	Post Creation:
+	◦	Button: “Create Post” prominently placed (e.g., floating action button).
+	◦	Modal with:
+	▪	Text field for the post.
+	▪	Option to upload an image.
+	▪	Toggle for “Public” or “Followers Only”.
+	▪	Post preview option.
+	◦	Submit to add to the feed and relevant followers’ timelines.
+
+4. Social Trading Feature
+	1	Explore Tab:
+	◦	Discover new users to follow based on:
+	▪	Shared interests (e.g., stocks followed).
+	▪	High-performing portfolios.
+	◦	Trending discussions on stocks.
+	2	Post Trading Insights:
+	◦	Users can share insights like:
+	▪	“Bought Tesla shares today due to X.”
+	▪	“Exited Apple; reasons: Y.”
+	◦	Option to attach proof or screenshots of trades (optional).
+	3	Engage with Insights:
+	◦	Comment: Ask for more details or suggest alternate opinions.
+	◦	Upvote: Highlight posts to make them more visible in trending sections.
+	4	Follow User Portfolios:
+	◦	A tab displaying top trades of followed users.
+	◦	Portfolio notifications: “X bought Y” (configurable in settings).
+
+5. Detailed User Actions
+	1	Following/Followers Management:
+	◦	Follow users directly from posts or explore pages.
+	◦	View a complete list of followers/following from the profile.
+	◦	Option to unfollow with a single tap.
+	2	Notifications:
+	◦	Alerts for new followers, comments on posts, or likes.
+	◦	Stock alerts if a followed user posts a trade involving a stock the user owns.
+	3	Search Functionality:
+	◦	Search bar with autocomplete for:
+	▪	Usernames.
+	▪	Stocks or ETFs (if tagging is implemented).
+	◦	Search history for quick access.
+
+6. Additional Flows
+	1	Privacy and Security Settings:
+	◦	Make profile private (only approved followers can see posts/portfolio).
+	◦	Set 2FA or password changes.
+	2	Analytics Dashboard:
+	◦	Basic portfolio performance stats.
+	◦	User engagement stats (likes, comments, shares).
+	3	Error Handling:
+	◦	If a user tries to follow too many people in one session, show a polite rate-limiting message.
+	◦	Ensure feedback for failed uploads (e.g., image upload fails due to size).
+	4	Logout:
+	◦	Accessible from settings or profile dropdown.
+
+Key Technical Considerations
+	1	Backend:
+	◦	Microservices architecture:
+	▪	Auth service (login/sign-up).
+	▪	Feed service (posts, likes, comments).
+	▪	Portfolio service (sync and display user portfolios).
+	◦	Database:
+	▪	Relational (e.g., PostgreSQL) for user, post, and follower data.
+	▪	NoSQL (e.g., MongoDB) for feed caching.
+	2	Frontend:
+	◦	Framework: React or Vue.js for a dynamic user experience.
+	◦	State management: Redux or Vuex for feed and user state.
+	3	Scalability:
+	◦	Implement pagination for feeds.
+	◦	Use WebSockets for real-time notifications.
+	4	Security:
+	◦	Secure image uploads with S3 or equivalent storage.
+	◦	Rate limiting and captcha for spam prevention.
